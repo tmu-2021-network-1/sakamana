@@ -14,8 +14,8 @@ body {
     margin: 0 auto;
   } */
   #studios > div {
-    width: 45px;
-    height:45px;
+    width: 180px;
+    height:180px;
     background: #2d2929;
     transform: rotate(45deg);
     overflow: hidden;
