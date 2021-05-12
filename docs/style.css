@@ -5,14 +5,27 @@ body {
     font-weight: 400;
     color: steelblue;
   }
-  #studios > div {
+  .diamond {
+    width: 45px;
+    height:45px;
+    background: #2d2929;
+    transform: rotate(45deg);
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  /* #studios > div {
     margin: 1em 0;
     padding: 0.5em;
     background: #f8f8f8;
     min-height: 3em;
-  }
+  } */
   .studio-title {
-    font-weight: bold;
+    font-size: 20px;
+    line-height: 45px;
+    color: #fff;
+    background: transparent;
+    transform: rotate(-45deg);
+    text-align: center;
   }
   .studio-title-en {
     margin-left: 1em;
