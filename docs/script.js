@@ -8,9 +8,13 @@ const renderJson = (json) => {
   
   studios.forEach(studio => {
     
-    const buttonDiv = document.createElement('div');
-    buttonDiv.className = 'button-div';
-    buttonDiv.textContent = studio['name-ja'];
+   const buttonDiv = document.createElement('div');
+   buttonDiv.className ='button-div';
+
+   const button = document.createElement("a");
+   button.className = 'studio-button'
+   button.href = `#${studio['name-ja']}`
+   button.textContent = studio['name-ja'].slice( 0, -4 ) ;
 
    const studioDiv = document.createElement('div');
    const studioTitle = document.createElement("span");
