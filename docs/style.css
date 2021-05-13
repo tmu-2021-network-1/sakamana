@@ -57,7 +57,7 @@ h3:after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
-}
+
 #buttons > div {
 font-size: 1.6rem;
   font-weight: 700;
@@ -88,6 +88,8 @@ font-size: 1.6rem;
 }
 .studio-title {
   font-weight: bold;
+  text-align: center;
+  margin-left: 350px;
 }
 .studio-title-en {
   margin-left: 1em;
@@ -152,4 +154,8 @@ color: #E7DA66;
 
 .studio-inner{
   font-size: 10px;
+  margin-right: 400px;
+  margin-left: 400px;
+  position: relative;
+  text-align: center;
 }
