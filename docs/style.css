@@ -3,7 +3,7 @@ body {
 }
 h1, h2 {
   font-weight: 400;
-  color: steelblue;
+  color: black;
   text-align: center;
 }
 h2 {
@@ -24,6 +24,33 @@ h2:after {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+h3 {
+  position: relative;
+  display: inline-block;
+  padding: 0 65px;
+  text-align: center;
+}
+
+h3:before,
+h3:after {
+  position: absolute;
+  top: calc(50% - 3px);
+  width: 50px;
+  height: 6px;
+  content: '';
+  border-top: solid 2px #000;
+  border-bottom: solid 2px #000;
+}
+
+h3:before {
+  left: 0;
+}
+
+h3:after {
+  right: 0;
+}
+
 #studios > div {
   margin: 1em 0;
   padding: 0.5em;
