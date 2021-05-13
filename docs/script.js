@@ -9,15 +9,15 @@ const renderJson = (json) => {
   studios.pop();
   
   studios.forEach(studio => {
-    const buttonDiv = document.createElement('div');
-   buttonDiv.className ='button-div';
+  //  const buttonDiv = document.createElement('div');
+  //  buttonDiv.className ='button-div';
 
-   const button = document.createElement("a");
-   button.className = 'studio-button'
-   button.href = `#${studio['name-ja']}`
-   button.textContent = studio['name-ja'].slice( 0, -4 ) ;
+  //  const button = document.createElement("a");
+  //  button.className = 'studio-button'
+  //  button.href = `#${studio['name-ja']}`
+  //  button.textContent = studio['name-ja'].slice( 0, -4 ) ;
 
-    const  studioImage =　document.createElement('img');
+   const  studioImage =　document.createElement('img');
    studioImage.id =studio['name-ja'];
    studioImage.className = 'studio-image';
    studioImage.src = studio['photo1'];
@@ -30,9 +30,12 @@ const renderJson = (json) => {
    const studioTitleEn = document.createElement("span");
    studioTitleEn.className = 'studio-title-en';
    studioTitleEn.textContent = studio['name-en'];
+
+
    studioDiv.appendChild(studioTitle);
    studioDiv.appendChild(studioTitleEn);
    studioDiv.appendChild(studioImage);
+   
    document.getElementById('studios').appendChild(studioDiv);
  });
   document.getElementById('result').textContent = JSON.stringify(json, null, 2);
@@ -45,7 +48,7 @@ const getData = async () => {
       const jsonResponse = await response.json();
 			renderJson(jsonResponse);
     }
-    
+
   }
   catch (error) {
     console.log(error);
