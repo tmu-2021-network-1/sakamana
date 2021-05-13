@@ -25,6 +25,10 @@ const renderJson = (json) => {
     
     const Diamond = document.createElement('div');
     Diamond.className = 'diamond';
+    
+    const studioInner = document.createElement("p");
+    studioInner.className = 'studio-inner';
+    studioInner.textContent = studio['description-ja'];
    
     
     // const studioInner = document.cleateElement('div');
@@ -44,6 +48,8 @@ const renderJson = (json) => {
    //studioDiv.appendChild(studioImage);
    studioDiv.appendChild(Diamond);
    Diamond.appendChild(studioImage);
+   studioDiv.appendChild(studioInner);
+   
     // studioDiv.appendChild(studioInner);
    // studioImage.appendChild(studioInner);
    document.getElementById('studios').appendChild(studioDiv);
