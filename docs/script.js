@@ -7,6 +7,11 @@ const renderJson = (json) => {
   const studios = json.records;
   
   studios.forEach(studio => {
+    
+    const buttonDiv = document.createElement('div');
+    buttonDiv.className = 'button-div';
+    buttonDiv.textContent = studio['name-ja'];
+
    const studioDiv = document.createElement('div');
    const studioTitle = document.createElement("span");
    studioTitle.className = 'studio-title';
