@@ -17,6 +17,11 @@ const renderJson = (json) => {
    button.href = `#${studio['name-ja']}`
    button.textContent = studio['name-ja'].slice( 0, -4 ) ;
 
+    const  studioImage =　document.createElement('img');
+   studioImage.id =studio['name-ja'];
+   studioImage.className = 'studio-image';
+   studioImage.src = studio['photo1'];
+   studioImage.alt = 'スタジオの画像';
     
    const studioDiv = document.createElement('div');
    const studioTitle = document.createElement("span");
@@ -27,6 +32,7 @@ const renderJson = (json) => {
    studioTitleEn.textContent = studio['name-en'];
    studioDiv.appendChild(studioTitle);
    studioDiv.appendChild(studioTitleEn);
+   studioDiv.appendChild(studioImage);
    document.getElementById('studios').appendChild(studioDiv);
  });
   document.getElementById('result').textContent = JSON.stringify(json, null, 2);

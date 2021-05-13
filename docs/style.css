@@ -54,7 +54,7 @@ h3:after {
 #studios > div {
   margin: 1em 0;
   padding: 0.5em;
-  background: #f8f8f8;
+  /* background-image:  ;  */
   min-height: 3em;
 }
 .studio-title {
@@ -64,4 +64,9 @@ h3:after {
   margin-left: 1em;
   font-weight: 100;
   opacity: 0.75;
+}
+
+.studio-image{
+  width: 100%;
+  height: 300px;
 }
