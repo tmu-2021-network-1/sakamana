@@ -45,6 +45,7 @@ const getData = async () => {
       const jsonResponse = await response.json();
 			renderJson(jsonResponse);
     }
+    
   }
   catch (error) {
     console.log(error);
