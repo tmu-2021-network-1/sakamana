@@ -9,19 +9,27 @@ const renderJson = (json) => {
   studios.pop();
   
   studios.forEach(studio => {
-  //  const buttonDiv = document.createElement('div');
-  //  buttonDiv.className ='button-div';
+    const buttonDiv = document.createElement('div');
+   buttonDiv.className ='button-div';
 
-  //  const button = document.createElement("a");
-  //  button.className = 'studio-button'
-  //  button.href = `#${studio['name-ja']}`
-  //  button.textContent = studio['name-ja'].slice( 0, -4 ) ;
+   const button = document.createElement("a");
+   button.className = 'studio-button'
+   button.href = `#${studio['name-ja']}`
+   button.textContent = studio['name-ja'].slice( 0, -4 ) ;
 
-   const  studioImage =　document.createElement('img');
+    const  studioImage =　document.createElement('img');
    studioImage.id =studio['name-ja'];
    studioImage.className = 'studio-image';
    studioImage.src = studio['photo1'];
    studioImage.alt = 'スタジオの画像';
+    
+    const Diamond = document.createElement('div');
+    Diamond.className = 'diamond';
+   
+    
+    // const studioInner = document.cleateElement('div');
+    // studioInner.className = 'studio-inner'
+    // studioInner.textContent = studio['description-ja'];
     
    const studioDiv = document.createElement('div');
    const studioTitle = document.createElement("span");
@@ -30,12 +38,14 @@ const renderJson = (json) => {
    const studioTitleEn = document.createElement("span");
    studioTitleEn.className = 'studio-title-en';
    studioTitleEn.textContent = studio['name-en'];
-
-
-   studioDiv.appendChild(studioTitle);
-   studioDiv.appendChild(studioTitleEn);
-   studioDiv.appendChild(studioImage);
    
+    studioDiv.appendChild(studioTitle);
+   studioDiv.appendChild(studioTitleEn);
+   //studioDiv.appendChild(studioImage);
+   studioDiv.appendChild(Diamond);
+   Diamond.appendChild(studioImage);
+    // studioDiv.appendChild(studioInner);
+   // studioImage.appendChild(studioInner);
    document.getElementById('studios').appendChild(studioDiv);
  });
   document.getElementById('result').textContent = JSON.stringify(json, null, 2);
@@ -48,7 +58,6 @@ const getData = async () => {
       const jsonResponse = await response.json();
 			renderJson(jsonResponse);
     }
-
   }
   catch (error) {
     console.log(error);
@@ -56,4 +65,3 @@ const getData = async () => {
 }
 
 getData();
-
