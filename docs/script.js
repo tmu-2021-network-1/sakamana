@@ -1,73 +1,17 @@
-const uri = 'https://script.google.com/macros/s/AKfycbxyacpN8y4nxSAnU0Eji6E_rBRDFTY7YoWWFa0clY5ELRhskgpt/exec';
-const id = '1BpGnuwC4lZf9G2yFyiSrxbJuGO8gviV8mr-I2D3x4vA';
-const sheet = 'Studio';
-const endpoint = `${uri}?id=${id}&sheet=${sheet}`;
-
-const renderJson = (json) => {
-  const studios = json.records;
-  
-  studios.pop();
-  
-  studios.forEach(studio => {
-    const buttonDiv = document.createElement('div');
-   buttonDiv.className ='button-div';
-
-   const button = document.createElement("a");
-   button.className = 'studio-button'
-   button.href = `#${studio['name-ja']}`
-   button.textContent = studio['name-ja'].slice( 0, -4 ) ;
-
-    const  studioImage =　document.createElement('img');
-   studioImage.id =studio['name-ja'];
-   studioImage.className = 'studio-image';
-   studioImage.src = studio['photo1'];
-   studioImage.alt = 'スタジオの画像';
-    
-    const Diamond = document.createElement('div');
-    Diamond.className = 'diamond';
-    
-    const studioInner = document.createElement("p");
-    studioInner.className = 'studio-inner';
-    studioInner.textContent = studio['description-ja'];
-   
-    
-    // const studioInner = document.cleateElement('div');
-    // studioInner.className = 'studio-inner'
-    // studioInner.textContent = studio['description-ja'];
-    
-   const studioDiv = document.createElement('div');
-   const studioTitle = document.createElement("span");
-   studioTitle.className = 'studio-title';
-   studioTitle.textContent = studio['name-ja'];
-   const studioTitleEn = document.createElement("span");
-   studioTitleEn.className = 'studio-title-en';
-   studioTitleEn.textContent = studio['name-en'];
-   
-    studioDiv.appendChild(studioTitle);
-   studioDiv.appendChild(studioTitleEn);
-   //studioDiv.appendChild(studioImage);
-   studioDiv.appendChild(Diamond);
-   Diamond.appendChild(studioImage);
-   studioDiv.appendChild(studioInner);
-   
-    // studioDiv.appendChild(studioInner);
-   // studioImage.appendChild(studioInner);
-   document.getElementById('studios').appendChild(studioDiv);
- });
-  document.getElementById('result').textContent = JSON.stringify(json, null, 2);
-}
-
-const getData = async () => {
-  try {
-    const response = await fetch(endpoint);
-    if (response.ok) {
-      const jsonResponse = await response.json();
-			renderJson(jsonResponse);
-    }
-  }
-  catch (error) {
-    console.log(error);
-  }
-}
-
-getData();
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.querySelector("#threeJS").appendChild( renderer.domElement );
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+camera.position.z = 5;
+const animate = function () {
+  requestAnimationFrame( animate );
+  cube.rotation.x = window.scrollY * 0.001;
+  cube.rotation.y = window.scrollY * 0.001;
+  renderer.render( scene, camera );
+};
+animate();
