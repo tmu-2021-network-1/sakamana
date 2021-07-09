@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+  }
+  #threeJS {
+    position: fixed;
+  }
+  .blank {
+    height: 1000vh;
+  }
