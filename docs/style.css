@@ -7,3 +7,8 @@ body {
 .blank {
   height: 1000vh;
 }
+p {
+  position: relative;
+  color: #fff;
+  z-index: 1000;
+}
