@@ -73,10 +73,11 @@ document.querySelector("#threeJS").appendChild( renderer.domElement );
 var light = new THREE.DirectionalLight(0xffffff);
 light.intensity = 2; // 光の強さを倍に
 
-directionalLight.shadow.camera.left = -10;
-    directionalLight.shadow.camera.right = 10;
-    directionalLight.shadow.camera.top = -10;
-    directionalLight.shadow.camera.bottom = 10;
+// directionalLight.shadow.camera.left = -10;
+//     directionalLight.shadow.camera.right = 10;
+//     directionalLight.shadow.camera.top = -10;
+//     directionalLight.shadow.camera.bottom = 10;
+//上追加すると真っ暗になる。光判定はあるっぽい？
 
 // ライトの位置を変更
 light.position.set(0, 1, 0).normalize();
@@ -91,8 +92,8 @@ camera.position.z = 5;
 
 const animate = function () {
   requestAnimationFrame( animate );
-  cube.rotation.x = window.scrollY * 0.001 ;
-  cube.rotation.y = window.scrollY * 0.001 ;
+  cube.rotation.x += 0.001 + window.scrollY * 0.001 ;
+  cube.rotation.y += 0.001 + window.scrollY * 0.001 ;
   renderer.render( scene, camera );
 };
 animate();
