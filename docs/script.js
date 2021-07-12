@@ -92,8 +92,34 @@ camera.position.z = 5;
 
 const animate = function () {
   requestAnimationFrame( animate );
-  cube.rotation.x += 0.001 + window.scrollY * 0.001 ;
-  cube.rotation.y += 0.001 + window.scrollY * 0.001 ;
+  cube.rotation.x +=　0.001 ;
+  cube.rotation.y +=　0.001 ;
+  //cube.rotation.x = window.scrollY * 0.001 ;//どんどん加速しちゃう
+  //cube.rotation.y = window.scrollY * 0.001 ;
   renderer.render( scene, camera );
 };
 animate();
+
+
+$(document).ready( function() {
+  // Rendererを用意
+  var renderer = new THREE.WebGLRenderer( { 'canvas' : $('#canvas')[0] } );
+
+  // Cameraを用意
+  var camera = new THREE.PerspectiveCamera();
+  camera.position.z = 500;
+
+  // 物体の用意
+  var geometry = new THREE.CubeGeometry(200, 200, 200);
+  var material = new THREE.MeshLambertMaterial( { color: 0x00ff88 } )
+  var mesh = new THREE.Mesh( geometry, material );
+  mesh.rotation.x = 0.5;
+  mesh.rotation.y = 0.5;
+
+  // Sceneを用意
+  var scene = new THREE.Scene();
+  scene.add( mesh );
+
+  // render
+  renderer.render( scene, camera );      
+} );
