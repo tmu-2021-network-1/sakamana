@@ -92,11 +92,34 @@ camera.position.z = 5;
 
 const animate = function () {
   requestAnimationFrame( animate );
-  cube.rotation.x +=　0.001 ;
-  cube.rotation.y +=　0.001 ;
-  //cube.rotation.x = window.scrollY * 0.001 ;//どんどん加速しちゃう
+  // cube.rotation.x +=　0.001 ;
+  // cube.rotation.y +=　0.001 ;
+  // //cube.rotation.x = window.scrollY * 0.001 ;//どんどん加速しちゃう
   //cube.rotation.y = window.scrollY * 0.001 ;
   renderer.render( scene, camera );
+
+  var isScrolling = 0 ;
+  var timeoutId ;
+
+  window.addEventListener( "scroll", function () {
+	  isScrolling = 1 ;
+
+	  // スクロールを停止して500ms後に終了とする
+	  clearTimeout( timeoutId ) ;
+
+	  timeoutId = setTimeout( function () {
+		  isScrolling = 0 ;
+	  }, 500 ) ;
+  } ) ;
+
+  if(isScrolling = 1){
+    cube.rotation.x = window.scrollY * 0.001 ;
+    cube.rotation.y = window.scrollY * 0.001 ;
+  }
+  else if(isScrolling = 0){
+    cube.rotation.x +=　0.001 ;
+    cube.rotation.y +=　0.001 ;
+  }
 };
 animate();
 
