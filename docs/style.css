@@ -40,5 +40,14 @@ p {
   z-index: 1000;
   
 }
+h6 {
+  font-family:serif;
+  text-align: center;
+  /* margin-bottom: 200px; */
+  /* margin-left: 400px; */
+  color: #fff;
+  z-index: 1000;
+  
+}
 
 
