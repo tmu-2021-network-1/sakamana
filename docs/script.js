@@ -84,10 +84,19 @@ light.position.set(0, 1, 0).normalize();
 
 scene.add(light);
 
-const geometry = new THREE.BoxGeometry(2, 2, 2);
-const material = new THREE.MeshBasicMaterial( { color: 0x808080 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const geometry1 = new THREE.BoxGeometry(2, 2, 2);
+const material1 = new THREE.MeshBasicMaterial( { color: 0x808080 } );
+const cube1 = new THREE.Mesh( geometry1, material1 );
+
+const geometry2 = new THREE.BoxGeometry(1, 1, 1);
+const material2 = new THREE.MeshBasicMaterial( { color: 0x808080 } );
+const cube2 = new THREE.Mesh( geometry2, material2 );
+
+
+scene.add( cube1 );
+
+scene.add( cube2 );
+cube2.position.set(3, 3, 0);
 camera.position.z = 5;
 
 const animate = function () {
@@ -98,51 +107,54 @@ const animate = function () {
   //cube.rotation.y = window.scrollY * 0.001 ;
   renderer.render( scene, camera );
 
-  var isScrolling = 0 ;
-  var timeoutId ;
+  // var isScrolling = 0 ;
+  // var timeoutId ;
 
-  window.addEventListener( "scroll", function () {
-	  isScrolling = 1 ;
+  // window.addEventListener( "scroll", function () {
+	//   isScrolling = 1 ;
 
 	  // スクロールを停止して500ms後に終了とする
-	  clearTimeout( timeoutId ) ;
+	  //clearTimeout( timeoutId ) ;
 
-	  timeoutId = setTimeout( function () {
-		  isScrolling = 0 ;
-	  }, 500 ) ;
-  } ) ;
+	  // timeoutId = setTimeout( function () {
+		//   isScrolling = 0 ;
+	  // }, 500 ) ;
+  //} ) ;
 
-  if(isScrolling = 1){
-    cube.rotation.x = window.scrollY * 0.001 ;
-    cube.rotation.y = window.scrollY * 0.001 ;
-  }
-  else if(isScrolling = 0){
-    cube.rotation.x +=　0.001 ;
-    cube.rotation.y +=　0.001 ;
-  }
+  // if(isScrolling = 1){
+    cube1.rotation.x = window.scrollY * 0.001 ;
+    cube1.rotation.y = window.scrollY * 0.001 ;
+
+    cube2.rotation.x = window.scrollY * 0.002 ;
+    cube2.rotation.y = window.scrollY * 0.002 ;
+  // }
+  // else if(isScrolling = 0){
+  //   cube1.rotation.x +=　0.001 ;
+  //   cube1.rotation.y +=　0.001 ;
+  // }
 };
 animate();
 
 
-$(document).ready( function() {
-  // Rendererを用意
-  var renderer = new THREE.WebGLRenderer( { 'canvas' : $('#canvas')[0] } );
+// $(document).ready( function() {
+//   // Rendererを用意
+//   var renderer = new THREE.WebGLRenderer( { 'canvas' : $('#canvas')[0] } );
 
-  // Cameraを用意
-  var camera = new THREE.PerspectiveCamera();
-  camera.position.z = 500;
+//   // Cameraを用意
+//   var camera = new THREE.PerspectiveCamera();
+//   camera.position.z = 500;
 
-  // 物体の用意
-  var geometry = new THREE.CubeGeometry(200, 200, 200);
-  var material = new THREE.MeshLambertMaterial( { color: 0x00ff88 } )
-  var mesh = new THREE.Mesh( geometry, material );
-  mesh.rotation.x = 0.5;
-  mesh.rotation.y = 0.5;
+//   // 物体の用意
+//   var geometry = new THREE.CubeGeometry(200, 200, 200);
+//   var material = new THREE.MeshLambertMaterial( { color: 0x00ff88 } )
+//   var mesh = new THREE.Mesh( geometry, material );
+//   mesh.rotation.x = 0.5;
+//   mesh.rotation.y = 0.5;
 
-  // Sceneを用意
-  var scene = new THREE.Scene();
-  scene.add( mesh );
+//   // Sceneを用意
+//   var scene = new THREE.Scene();
+//   scene.add( mesh );
 
-  // render
-  renderer.render( scene, camera );      
-} );
+//   // render
+//   renderer.render( scene, camera );      
+// } );
