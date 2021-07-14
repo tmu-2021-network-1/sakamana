@@ -33,9 +33,12 @@ h1 {
 
 p {
   font-family:serif;
-  text-align: center;
+  text-align: left;
   margin-bottom: 100px;
+  margin-left: 400px;
   color: #fff;
   z-index: 1000;
   
 }
+
+
