@@ -92,11 +92,26 @@ const geometry2 = new THREE.BoxGeometry(1, 1, 1);
 const material2 = new THREE.MeshBasicMaterial( { color: 0x808080 } );
 const cube2 = new THREE.Mesh( geometry2, material2 );
 
+const geometry3 = new THREE.BoxGeometry(1, 1, 1);
+const material3 = new THREE.MeshBasicMaterial( { color: 0x808080 } );
+const cube3 = new THREE.Mesh( geometry2, material2 );
+
+const geometry4 = new THREE.BoxGeometry(1, 1, 1);
+const material4 = new THREE.MeshBasicMaterial( { color: 0x808080 } );
+const cube4 = new THREE.Mesh( geometry2, material2 );
+
 
 scene.add( cube1 );
 
 scene.add( cube2 );
 cube2.position.set(3, 3, 0);
+
+scene.add( cube3 );
+cube3.position.set(5, -2, 0);
+
+scene.add( cube4 );
+cube4.position.set(-3, -1, 0);
+
 camera.position.z = 5;
 
 const animate = function () {
@@ -127,6 +142,12 @@ const animate = function () {
 
     cube2.rotation.x = window.scrollY * 0.002 ;
     cube2.rotation.y = window.scrollY * 0.002 ;
+
+    cube3.rotation.x = window.scrollY * 0.0025 ;
+    cube3.rotation.y = window.scrollY * 0.0025 ;
+
+    cube4.rotation.x = window.scrollY * 0.002 ;
+    cube4.rotation.y = -window.scrollY * 0.0025 ;
   // }
   // else if(isScrolling = 0){
   //   cube1.rotation.x +=　0.001 ;
